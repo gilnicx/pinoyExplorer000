@@ -5,6 +5,13 @@ public var audio1 : AudioClip;
 var audio2: AudioSource;
 var debris : Transform;
 var spawnDebri : Transform;
+var rb : Rigidbody;
+var debri : GameObject;
+
+
+
+
+
 
 
 function Start () 
@@ -12,17 +19,14 @@ function Start ()
 	camerashake = GameObject.Find("MainCamera").GetComponent(CameraShake);
 	audio2 = GetComponent.<AudioSource>();
 
-}
 
-function OnMouseDown ()
-{
-	{
-	    
+	    yield WaitForSeconds (2);
+	    rb = debri.AddComponent.<Rigidbody>();
 	    GetComponent.<AudioSource>().PlayOneShot(audio1, 1);
 	    Instantiate(debris, spawnDebri.transform.position, spawnDebri.transform.rotation);
 		camerashake.CameraShake();
-		yield WaitForSeconds(13);
-		Application.LoadLevel("AfterEQ");
+		yield WaitForSeconds(11);
+		Application.LoadLevel("AfterQuake");
 	}
  
-}
+
